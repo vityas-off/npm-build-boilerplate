@@ -33,10 +33,10 @@ You're ready to go! Run any task by typing `npm run task` (where "task" is the n
 
   Add vendor prefixes to your CSS automatically
 
-### `scss`
-  `node-sass --output-style compressed -o dist/css src/scss`
+### `postcss`
+  `cat src/css/*.css | node_modules/.bin/postcss -u postcss-cssnext > dist/css/main.css`
 
-  Compile Scss to CSS
+  Compile postcss with cssnext
 
 ### `lint`
   `eslint src/js`
@@ -64,9 +64,9 @@ You're ready to go! Run any task by typing `npm run task` (where "task" is the n
   Start a new server and watch for CSS & JS file changes in the `dist` folder
 
 ### `build:css`
-  `npm run scss && npm run autoprefixer`
+  `npm run postcss`
 
-  Alias to run the `scss` and `autoprefixer` tasks. Compiles Scss to CSS & add vendor prefixes
+  Alias to run the `postcss`. Autoprefixer removed because it is build in `cssnext`
 
 ### `build:js`
   `npm run lint && npm run concat && npm run uglify`
@@ -84,9 +84,9 @@ You're ready to go! Run any task by typing `npm run task` (where "task" is the n
   Alias to run all of the `build` commands
 
 ### `watch:css`
-  `onchange 'src/**/*.scss' -- npm run build:css`
+  `onchange 'src/**/*.css' -- npm run build:css`
 
-  Watches for any .scss file in `src` to change, then runs the `build:css` task
+  Watches for any .css file in `src` to change, then runs the `build:css` task
 
 ### `watch:js`
   `onchange 'src/**/*.js' -- npm run build:js`
