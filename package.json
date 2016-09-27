@@ -20,7 +20,7 @@
   "scripts": {
     "clean": "rm -f dist/{css/*,js/*,images/*}",
     "autoprefixer": "postcss -u autoprefixer -r dist/css/*",
-    "postcss": "cat src/css/*.css | node_modules/.bin/postcss -u postcss-cssnext > dist/css/main.css",
+    "postcss": "cat src/css/*.css | postcss -u postcss-cssnext > dist/css/main.css",
     "lint": "eslint src/js",
     "uglify": "mkdir -p dist/js && uglifyjs src/js/*.js -m -o dist/js/app.js && uglifyjs src/js/*.js -m -c -o dist/js/app.min.js",
     "imagemin": "imagemin src/images/* -o dist/images",
